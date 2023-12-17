@@ -1,34 +1,41 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [fullName, setFullName] = useState('');
+  const [password, setPassword] = useState('');
+
+  const fullNameHandler = (e) => {
+    setFullName(e.target.value);
+  }
+
+  const passwordHandler = (e) => {
+    setPassword(e.target.value);
+  }
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='bg-emerald-500  h-screen p-8 '>
+      <h2 className=' text-3xl text-center m-4 font-bold'>Login Form</h2>
+      
+      <label htmlFor="Full-Name" className='text-2xl font-bold'>Full Name</label>
+      <input type="text" 
+      className='m-4'
+      value={fullName}
+      onChange={fullNameHandler}/>
+      
+      <label htmlFor="Password" className='text-2xl font-bold'>Password</label>
+      <input type="text" 
+      className='m-4'
+      value={password}
+      onChange={passwordHandler}/>
+
+      <h1 className='mt-8 text-center text-3xl font-bold'>Profile</h1>
+      <div className=' text-3xl m-4 font-bold'>
+        Full Name: {fullName}</div>
+      <div className=' text-3xl m-4 font-bold'>
+        Password: {password}</div>
+    </div>
   )
 }
 
